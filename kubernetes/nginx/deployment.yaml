@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: adamk8s/nginx-web:v2
+        image: adamk8s/nginx-web:v3
 
         ports:
         - containerPort: 80
