@@ -1,0 +1,22 @@
+Forwarding from 0.0.0.0:20001 -> 20001
+Handling connection for 20001
+Handling connection for 20001
+Handling connection for 20001
+Handling connection for 20001
+Handling connection for 20001
+Handling connection for 20001
+Handling connection for 20001
+Handling connection for 20001
+Handling connection for 20001
+Handling connection for 20001
+Handling connection for 20001
+Handling connection for 20001
+Handling connection for 20001
+Handling connection for 20001
+Handling connection for 20001
+Handling connection for 20001
+Handling connection for 20001
+Handling connection for 20001
+E0813 15:40:47.460178   60576 portforward.go:413] "Unhandled Error" err="an error occurred forwarding 20001 -> 20001: error forwarding port 20001 to pod 09f9e1d4ff3e49eed7f8bfb85cc5c4fc7cf548d34e4550b297d7358003c6379b, uid : network namespace for sandbox \"09f9e1d4ff3e49eed7f8bfb85cc5c4fc7cf548d34e4550b297d7358003c6379b\" is closed"
+E0813 15:40:47.460166   60576 portforward.go:413] "Unhandled Error" err="an error occurred forwarding 20001 -> 20001: error forwarding port 20001 to pod 09f9e1d4ff3e49eed7f8bfb85cc5c4fc7cf548d34e4550b297d7358003c6379b, uid : network namespace for sandbox \"09f9e1d4ff3e49eed7f8bfb85cc5c4fc7cf548d34e4550b297d7358003c6379b\" is closed"
+error: lost connection to pod
