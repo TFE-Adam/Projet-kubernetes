@@ -6,9 +6,9 @@ metadata:
   namespace: nginx-web
 
 subjects:
-- kind: Group
-  name: developers
-  apiGroup: rbac.authorization.k8s.io
+- kind: ServiceAccount
+  name: developer-sa
+  namespace: nginx-web
 
 roleRef:
   kind: Role
