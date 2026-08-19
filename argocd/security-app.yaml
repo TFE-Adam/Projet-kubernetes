@@ -1,1 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
 
+metadata:
+  name: security
+  namespace: argocd
+
+spec:
+
+  project: default
+
+  source:
+    repoURL: https://github.com/TFE-Adam/Projet-kubernetes.git
+    targetRevision: main
+    path: security
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: nginx-web
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
