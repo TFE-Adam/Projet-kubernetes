@@ -6,9 +6,9 @@ metadata:
   namespace: nginx-web
 
 subjects:
-- kind: Group
-  name: viewers
-  apiGroup: rbac.authorization.k8s.io
+- kind: ServiceAccount
+  name: viewer-sa
+  namespace: nginx-web
 
 roleRef:
   kind: Role
