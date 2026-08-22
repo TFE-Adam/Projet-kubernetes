@@ -10,17 +10,30 @@ spec:
       app: nginx-web
 
   policyTypes:
-  - Ingress
+    - Ingress
 
   ingress:
-  - from:
-    - podSelector:
-        matchLabels:
-          access: nginx
-    ports:
-    - protocol: TCP
-      port: 80
+    # Autorise le trafic HTTP vers nginx uniquement
+    # depuis les pods ayant le label access=nginx
+    - from:
+        - podSelector:
+            matchLabels:
+              access: nginx
+      ports:
+        - protocol: TCP
+          port: 80
 
-  - ports:
-    - protocol: TCP
-      port: 15021
+    # Autorise le port de readiness du sidecar Istio
+    - ports:
+        - protocol: TCP
+          port: 15021
+
+    # Autorise Prometheus dans istio-system
+    # à scraper les métriques du sidecar Istio
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: istio-system
+      ports:
+        - protocol: TCP
+          port: 15020
