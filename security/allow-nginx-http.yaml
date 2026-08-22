@@ -3,13 +3,20 @@ kind: NetworkPolicy
 metadata:
   name: allow-nginx-http
   namespace: nginx-web
+
 spec:
   podSelector:
     matchLabels:
       app: nginx-web
+
   policyTypes:
-  - Ingress
+    - Ingress
+
   ingress:
-  - ports:
-    - protocol: TCP
-      port: 80
+    - from:
+        - podSelector:
+            matchLabels:
+              access: nginx
+      ports:
+        - protocol: TCP
+          port: 80
