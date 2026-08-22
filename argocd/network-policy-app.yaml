@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: network-policy-demo
+  namespace: argocd
+
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/TFE-Adam/Projet-kubernetes.git
+    targetRevision: main
+    path: security/network-policies
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: netpol-demo
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
