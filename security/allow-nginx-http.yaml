@@ -10,13 +10,17 @@ spec:
       app: nginx-web
 
   policyTypes:
-    - Ingress
+  - Ingress
 
   ingress:
-    - from:
-        - podSelector:
-            matchLabels:
-              access: nginx
-      ports:
-        - protocol: TCP
-          port: 80
+  - from:
+    - podSelector:
+        matchLabels:
+          access: nginx
+    ports:
+    - protocol: TCP
+      port: 80
+
+  - ports:
+    - protocol: TCP
+      port: 15021
