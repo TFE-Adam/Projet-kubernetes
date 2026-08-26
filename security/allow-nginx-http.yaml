@@ -1,5 +1,6 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
+
 metadata:
   name: allow-nginx-http
   namespace: nginx-web
@@ -10,30 +11,17 @@ spec:
       app: nginx-web
 
   policyTypes:
-    - Ingress
+  - Ingress
 
   ingress:
-    # Autorise le trafic HTTP vers nginx uniquement
-    # depuis les pods ayant le label access=nginx
-    - from:
-        - podSelector:
-            matchLabels:
-              access: nginx
-      ports:
-        - protocol: TCP
-          port: 80
+  - from:
+    - podSelector:
+        matchLabels:
+          access: nginx
 
-    # Autorise le port de readiness du sidecar Istio
-    - ports:
-        - protocol: TCP
-          port: 15021
+    - ipBlock:
+        cidr: 192.168.137.0/24
 
-    # Autorise Prometheus dans istio-system
-    # à scraper les métriques du sidecar Istio
-    - from:
-        - namespaceSelector:
-            matchLabels:
-              kubernetes.io/metadata.name: istio-system
-      ports:
-        - protocol: TCP
-          port: 15020
+    ports:
+    - protocol: TCP
+      port: 80
