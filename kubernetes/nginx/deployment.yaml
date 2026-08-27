@@ -23,6 +23,7 @@ spec:
 
     spec:
       containers:
+
       - name: nginx
         image: adamk8s/nginx-web:v5
 
@@ -45,3 +46,11 @@ spec:
 
         ports:
         - containerPort: 9113
+
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "20Mi"
+          limits:
+            cpu: "50m"
+            memory: "50Mi"
